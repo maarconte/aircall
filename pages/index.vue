@@ -37,6 +37,10 @@ header {
   background-repeat: no-repeat;
   background-size: 70% auto;
   background-position: 100% bottom;
+  @include breakpoint(mobileonly) {
+    background-image: inherit;
+    min-height: inherit;
+  }
   .wrapper {
     padding-top: 200px;
     padding-bottom: 190px;
