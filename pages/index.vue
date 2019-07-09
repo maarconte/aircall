@@ -1,10 +1,10 @@
 <template>
   <div>
     <Menu />
-    <div class="container">
+    <main class="container">
       <FormTrial />
       <PartnersList />
-    </div>
+    </main>
     <Footer />
   </div>
 </template>

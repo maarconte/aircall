@@ -1,4 +1,6 @@
+@import "var";
 @import "font";
+@import "link";
 
 html {
     font-size: 16px;
@@ -15,4 +17,8 @@ html {
 *:after {
     box-sizing: border-box;
     margin: 0;
+}
+
+main {
+    margin-top: 66px;
 }
