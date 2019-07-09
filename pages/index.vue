@@ -1,15 +1,26 @@
 <template>
-  <div class="container">
-    <logo />
+  <div>
+    <Menu />
+    <div class="container">
+      <FormTrial />
+      <PartnersList />
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
+import Menu from "~/components/Menu.vue";
+import FormTrial from "~/components/FormTrial.vue";
+import PartnersList from "~/components/PartnersList.vue";
+import Footer from "~/components/Footer.vue";
 
 export default {
   components: {
-    Logo
+    Menu,
+    FormTrial,
+    PartnersList,
+    Footer
   }
 };
 </script>
