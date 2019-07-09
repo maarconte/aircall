@@ -117,10 +117,10 @@
   background-color: #fff;
   .nav-link {
     font-weight: 500;
-    color: rgb(0, 0, 0);
+    color: $color-black;
     transition: color 0.2s ease-out;
     &:hover {
-      color: #00b388;
+      color: $color-primary;
       &:after {
         background-image: url(/dropdown2.svg);
       }

@@ -21,4 +21,5 @@ html {
 
 main {
     margin-top: 66px;
+    min-height: calc(100vh - calc(66px  + 53px));
 }
