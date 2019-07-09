@@ -121,8 +121,8 @@
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #fff;
   @include breakpoint(mobileonly) {
+    background-color: #fff;
     box-shadow: 0 1px 1px -1px rgba(16, 24, 32, 0.16);
   }
   .nav-link {

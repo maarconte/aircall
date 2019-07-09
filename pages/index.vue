@@ -1,10 +1,16 @@
 <template>
   <div>
     <Menu />
-    <main class="container">
-      <FormTrial />
+    <header>
+      <div class="container">
+        <div class="wrapper">
+          <FormTrial />
+        </div>
+      </div>
+    </header>
+    <div class="container">
       <PartnersList />
-    </main>
+    </div>
     <Footer />
   </div>
 </template>
@@ -24,3 +30,16 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+header {
+  min-height: 700px;
+  background-image: url("/illo@2X.png");
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  background-position: 100% bottom;
+  .wrapper {
+    padding-top: 200px;
+    padding-bottom: 190px;
+  }
+}
+</style>
