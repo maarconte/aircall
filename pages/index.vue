@@ -9,7 +9,7 @@
       </div>
     </header>
     <div class="container">
-      <PartnersList />
+      <CompaniesList />
     </div>
     <Footer />
   </div>
@@ -18,14 +18,14 @@
 <script>
 import Menu from "~/components/Menu.vue";
 import FormTrial from "~/components/FormTrial.vue";
-import PartnersList from "~/components/PartnersList.vue";
+import CompaniesList from "~/components/CompaniesList.vue";
 import Footer from "~/components/Footer.vue";
 
 export default {
   components: {
     Menu,
     FormTrial,
-    PartnersList,
+    CompaniesList,
     Footer
   }
 };
