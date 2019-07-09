@@ -5,17 +5,15 @@
         <a class="navbar-brand" href="#">
           <img src="/aircall-logo.svg" alt="aircall-logo" />
         </a>
-        <button
-          class="navbar-toggler"
+        <span
+          class="navbar-toggler btn-menu"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        >Menu</span>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -97,7 +95,7 @@
                 <a href="#" class="nav-link">Login</a>
               </li>
               <li class="nav-item">
-                <a class="btn btn-outline-primary ml-4" href="#">Try Aircall for free</a>
+                <a class="btn btn-outline-primary cta" href="#">Try Aircall for free</a>
               </li>
             </ul>
           </div>
@@ -108,6 +106,15 @@
 </template>
 
 <style lang="scss" scoped>
+.cta {
+  margin-left: 8px;
+}
+.btn-menu {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-primary;
+  text-transform: uppercase;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -115,6 +122,9 @@
   right: 0;
   z-index: 10;
   background-color: #fff;
+  @include breakpoint(mobileonly) {
+    box-shadow: 0 1px 1px -1px rgba(16, 24, 32, 0.16);
+  }
   .nav-link {
     font-weight: 500;
     color: $color-black;
@@ -125,6 +135,19 @@
         background-image: url(/dropdown2.svg);
       }
     }
+  }
+}
+/* Repsonsive */
+.navbar-collapse.show {
+  padding-top: 10px;
+  .nav-item:not(:last-child) {
+    border-top: 1px solid $color-grey-lighter;
+    padding: 8px 0;
+    width: 100%;
+  }
+  .cta {
+    margin: 15px auto;
+    display: block;
   }
 }
 </style>
