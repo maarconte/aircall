@@ -4,7 +4,11 @@
     <header>
       <div class="container">
         <div class="wrapper">
-          <FormTrial />
+          <div class="row">
+            <div class="col-sm-5">
+              <FormTrial />
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -32,14 +36,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 header {
-  min-height: 700px;
   background-image: url("/illo@2X.png");
   background-repeat: no-repeat;
   background-size: 70% auto;
   background-position: 100% bottom;
   @include breakpoint(mobileonly) {
     background-image: inherit;
-    min-height: inherit;
   }
   .wrapper {
     padding-top: 200px;

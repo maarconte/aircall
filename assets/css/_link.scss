@@ -45,4 +45,9 @@
     }
 }
 
+.btn:disabled, input[type="submit"]:disabled {
+    background-color: $color-primary-lighter !important;
+    border-color: $color-primary-lighter !important;
+}
+
 /*=====  End of Buttons                ======*/

@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.25",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-country-region-select": "^2.0.10",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
