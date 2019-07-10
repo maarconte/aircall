@@ -38,7 +38,7 @@
           <label for="inputPhone">Phone Number</label>
           <div class="input-group">
             <div class="input-group-prepend" style="width: 30%;">
-              <select name id class="form-control" v-model="countryPhone">
+              <select name id class="form-control phoneSelect" v-model="countryPhone">
                 <option
                   v-for="country in countries"
                   :key="country.phone"
@@ -141,6 +141,9 @@ h2 {
 }
 .input-phone {
   padding-left: 50px;
+}
+.phoneSelect {
+  padding-right: 25px !important;
 }
 .staticValue {
   position: absolute;
