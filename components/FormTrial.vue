@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>The phone system for modern business</h1>
-    <h2>Instant setup.Powerfull integrations.Proven Quality.</h2>
-    <form>
+    <h2>Instant setup. Powerfull integrations. Proven Quality.</h2>
+    <form @submit.prevent="submit">
       <div class="row">
         <div class="form-group col-sm-12">
           <label for="inputEmail">Email</label>
@@ -34,16 +34,29 @@
             v-model="lastName"
           />
         </div>
-        <div class="form-group col-sm-6">
+        <div class="col-sm-6">
           <label for="inputPhone">Phone Number</label>
-          <input
-            type="tel"
-            class="form-control"
-            :class="{ 'hasError': $v.phone.$error }"
-            id="inputPhone"
-            v-model="phone"
-          />
+          <div class="input-group">
+            <div class="input-group-prepend" style="width: 30%;">
+              <select name id class="form-control" v-model="countryPhone">
+                <option
+                  v-for="country in countries"
+                  :key="country.phone"
+                  :value="country.phone"
+                >{{country.emoji + ' ' + country.name}}</option>
+              </select>
+            </div>
+            <input
+              type="tel"
+              class="form-control input-phone"
+              :class="{ 'hasError': $v.phone.$error }"
+              id="inputPhone"
+              v-model="phone"
+            />
+            <span v-if="countryPhone" class="staticValue">{{'+' + countryPhone}}</span>
+          </div>
         </div>
+
         <div class="form-group col-sm-6">
           <label for="inputCountry">Country</label>
           <select
@@ -56,8 +69,7 @@
               v-for="country in countries"
               :key="country.name"
               :value="country.name"
-              v-bind:style="{ 'background': 'url(' + country.file_url + ')' }"
-            >{{country.name}}</option>
+            >{{country.emoji + ' ' + country.name}}</option>
           </select>
         </div>
       </div>
@@ -82,13 +94,13 @@ export default Vue.extend({
     firstName: null,
     lastName: null,
     phone: null,
+    countryPhone: null,
     country: null,
     countries: []
   }),
   validations: {
     email: {
       required,
-      minLength: minLength(4),
       email
     },
     firstName: {
@@ -98,6 +110,7 @@ export default Vue.extend({
       required
     },
     phone: {
+      required,
       numeric,
       minLength: minLength(4)
     },
@@ -125,5 +138,14 @@ export default Vue.extend({
 h2 {
   font-weight: 400;
   font-size: 16px;
+}
+.input-phone {
+  padding-left: 50px;
+}
+.staticValue {
+  position: absolute;
+  left: 36%;
+  top: 7px;
+  z-index: 1020;
 }
 </style>
