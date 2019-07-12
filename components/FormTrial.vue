@@ -41,7 +41,7 @@
               <select name id class="form-control phoneSelect" v-model="countryPhone">
                 <option
                   v-for="country in countries"
-                  :key="country.phone"
+                  :key="country.name"
                   :value="country.phone"
                 >{{country.emoji + ' ' + country.name}}</option>
               </select>
@@ -77,6 +77,7 @@
         type="submit"
         class="btn btn-primary d-block m-auto w-100"
         value="Try Aircall for free"
+        :disabled="submitStatus === 'PENDING'"
       />
     </form>
   </div>
@@ -89,14 +90,14 @@ Vue.use(Vuelidate);
 
 export default Vue.extend({
   data: () => ({
-    errors: [],
     email: null,
     firstName: null,
     lastName: null,
     phone: null,
     countryPhone: null,
     country: null,
-    countries: []
+    countries: [],
+    submitStatus: null
   }),
   validations: {
     email: {
@@ -121,7 +122,15 @@ export default Vue.extend({
   methods: {
     submit() {
       this.$v.$touch();
-      if (this.$v.$error) return;
+      if (this.$v.$invalid) {
+        this.submitStatus = "ERROR";
+      } else {
+        // do your submit logic here
+        this.submitStatus = "PENDING";
+        setTimeout(() => {
+          this.$emit("send", "OK");
+        }, 500);
+      }
     }
   },
   created() {

@@ -6,7 +6,8 @@
         <div class="wrapper">
           <div class="row">
             <div class="col-sm-5">
-              <FormTrial />
+              <FormTrial v-if="!submitStatus" v-on:send="updateStatus" />
+              <FormTrialSuccess v-if="submitStatus === 'OK'" />
             </div>
           </div>
         </div>
@@ -22,6 +23,7 @@
 <script>
 import Menu from "~/components/Menu.vue";
 import FormTrial from "~/components/FormTrial.vue";
+import FormTrialSuccess from "~/components/FormTrialSuccess.vue";
 import CompaniesList from "~/components/CompaniesList.vue";
 import Footer from "~/components/Footer.vue";
 
@@ -29,8 +31,19 @@ export default {
   components: {
     Menu,
     FormTrial,
+    FormTrialSuccess,
     CompaniesList,
     Footer
+  },
+  data: () => ({
+    submitStatus: null
+  }),
+  methods: {
+    updateStatus(text) {
+      console.log(this.submitStatus);
+      this.submitStatus = text;
+      console.log(this.submitStatus);
+    }
   }
 };
 </script>
