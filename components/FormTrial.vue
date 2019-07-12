@@ -128,7 +128,8 @@ export default Vue.extend({
         // do your submit logic here
         this.submitStatus = "PENDING";
         setTimeout(() => {
-          this.$emit("send", "OK");
+          this.$emit("status", "OK");
+          this.$emit("mail", this.email);
         }, 500);
       }
     }

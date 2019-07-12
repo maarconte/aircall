@@ -6,8 +6,8 @@
         <div class="wrapper">
           <div class="row">
             <div class="col-sm-5">
-              <FormTrial v-if="!submitStatus" v-on:send="updateStatus" />
-              <FormTrialSuccess v-if="submitStatus === 'OK'" />
+              <FormTrial v-if="!submitStatus" v-on:status="updateStatus" v-on:mail="updateMail" />
+              <FormTrialSuccess v-if="submitStatus === 'OK'" :mail="mail" />
             </div>
           </div>
         </div>
@@ -36,13 +36,15 @@ export default {
     Footer
   },
   data: () => ({
-    submitStatus: null
+    submitStatus: null,
+    mail: null
   }),
   methods: {
     updateStatus(text) {
-      console.log(this.submitStatus);
       this.submitStatus = text;
-      console.log(this.submitStatus);
+    },
+    updateMail(mail) {
+      this.mail = mail;
     }
   }
 };
