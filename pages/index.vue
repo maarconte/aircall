@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <Menu />
     <header>
       <div class="container">
@@ -17,7 +17,7 @@
       <CompaniesList />
     </div>
     <Footer />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -50,6 +50,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 header {
   background-image: url("/illo@2X.png");
   background-repeat: no-repeat;
@@ -59,8 +64,12 @@ header {
     background-image: inherit;
   }
   .wrapper {
-    padding-top: 200px;
-    padding-bottom: 190px;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    @include breakpoint(desktop) {
+      padding-top: 200px;
+      padding-bottom: 190px;
+    }
   }
 }
 </style>

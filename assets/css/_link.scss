@@ -1,6 +1,7 @@
-.btn, a, button, input[type="submit"] {
+.btn, a, button, [type="button"], [type="reset"], [type="submit"] {
     font-weight: 500;
     text-decoration: none;
+    -webkit-appearance: none;
 }
 
 .dropdown-toggle {

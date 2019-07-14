@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer mt-auto">
     <nav class="navbar navbar-expand-lg">
       <div class="container d-block d-lg-flex">
         <ul class="navbar-nav mr-auto footer_menu">
