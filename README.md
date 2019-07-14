@@ -1,6 +1,12 @@
 # Aircall
 
-> Web Dev Intern Technical Test
+[Web Dev Intern Technical Test](https://www.notion.so/Web-Dev-Intern-Technical-Test-eb15be58611949478b45a461c7eb7324)
+
+## Download
+
+```bash
+$ git clone https://github.com/maarconte/aircall.git
+```
 
 ## Build Setup
 
@@ -18,5 +24,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
