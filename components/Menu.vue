@@ -28,10 +28,8 @@
                 aria-expanded="false"
               >Product</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Features</a>
+                <a class="dropdown-item" href="#">Apps</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -45,10 +43,8 @@
                 aria-expanded="false"
               >Integration</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Features</a>
+                <a class="dropdown-item" href="#">Apps</a>
               </div>
             </li>
             <li class="nav-item">
@@ -65,10 +61,8 @@
                 aria-expanded="false"
               >Partners</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Features</a>
+                <a class="dropdown-item" href="#">Apps</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -82,10 +76,8 @@
                 aria-expanded="false"
               >Ressources</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Features</a>
+                <a class="dropdown-item" href="#">Apps</a>
               </div>
             </li>
           </ul>
@@ -135,6 +127,18 @@
         background-image: url(/dropdown2.svg);
       }
     }
+  }
+}
+.dropdown-menu {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px 0;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.16), 0 24px 24px 0 rgba(0, 0, 0, 0.05),
+    0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.05),
+    0 8px 8px 0 rgba(0, 0, 0, 0.05), 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+  @include breakpoint(mobileonly) {
+    box-shadow: none;
+    border: none;
   }
 }
 /* Repsonsive */
