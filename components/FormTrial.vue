@@ -37,8 +37,8 @@
         <div class="col-sm-6">
           <label for="inputPhone">Phone Number</label>
           <div class="input-group">
-            <div class="input-group-prepend" style="width: 30%;">
-              <select name id class="form-control phoneSelect" v-model="countryPhone">
+            <div class="input-group-prepend">
+              <select name id class="form-control" v-model="countryPhone">
                 <option
                   v-for="country in countries"
                   :key="country.name"
@@ -48,12 +48,12 @@
             </div>
             <input
               type="tel"
-              class="form-control input-phone"
+              class="form-control"
               :class="{ 'hasError': $v.phone.$error }"
               id="inputPhone"
               v-model="phone"
             />
-            <span v-if="countryPhone" class="staticValue">{{'+' + countryPhone}}</span>
+            <span v-if="countryPhone" class="input-group-label">{{'+' + countryPhone}}</span>
           </div>
         </div>
 
@@ -149,16 +149,35 @@ h2 {
   font-weight: 400;
   font-size: 16px;
 }
-.input-phone {
-  padding-left: 50px;
-}
-.phoneSelect {
-  padding-right: 25px !important;
-}
-.staticValue {
-  position: absolute;
-  left: 36%;
-  top: 7px;
-  z-index: 1020;
+.input-group {
+  &-prepend {
+    width: 30%;
+    @media (min-width: 414px) {
+      width: 20%;
+    }
+    @media (min-width: 375px) {
+      width: 16%;
+    }
+
+    & select {
+      padding-right: 26px !important;
+      color: #ffffff;
+      @media (max-width: 375px) {
+        padding: 0.375rem 0.75rem !important;
+      }
+    }
+  }
+  & input {
+    padding-left: 55px;
+  }
+  &-label {
+    position: absolute;
+    left: 36%;
+    top: 7px;
+    z-index: 1020;
+    @include breakpoint(mobileonly) {
+      left: 18%;
+    }
+  }
 }
 </style>
