@@ -73,12 +73,11 @@
           </select>
         </div>
       </div>
-      <input
+      <button
         type="submit"
-        class="btn btn-primary d-block m-auto w-100"
-        value="Try Aircall for free"
-        :disabled="submitStatus === 'PENDING'"
-      />
+        class="d-block m-auto"
+        :class="submitStatus === 'PENDING' ? btnAnimation : 'btn btn-primary w-100'"
+      ></button>
     </form>
   </div>
 </template>
@@ -86,6 +85,7 @@
 import Vue from "vue";
 import Vuelidate from "vuelidate";
 import { required, email, minLength, numeric } from "vuelidate/lib/validators";
+import { setTimeout } from "timers";
 Vue.use(Vuelidate);
 
 export default Vue.extend({
@@ -97,7 +97,8 @@ export default Vue.extend({
     countryPhone: null,
     country: null,
     countries: [],
-    submitStatus: null
+    submitStatus: null,
+    btnAnimation: null
   }),
   validations: {
     email: {
@@ -125,12 +126,15 @@ export default Vue.extend({
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
       } else {
-        // do your submit logic here
         this.submitStatus = "PENDING";
+        this.btnAnimation = "onclic";
+        setTimeout(() => {
+          this.btnAnimation = "validate";
+        }, 2000);
         setTimeout(() => {
           this.$emit("status", "OK");
           this.$emit("mail", this.email);
-        }, 500);
+        }, 1000);
       }
     }
   },
@@ -151,12 +155,14 @@ h2 {
 }
 .input-group {
   &-prepend {
-    width: 30%;
+    @media (min-width: 375px) {
+      width: 16%;
+    }
     @media (min-width: 414px) {
       width: 20%;
     }
-    @media (min-width: 375px) {
-      width: 16%;
+    @include breakpoint(phablet) {
+      width: 30%;
     }
 
     & select {
@@ -178,6 +184,57 @@ h2 {
     @include breakpoint(mobileonly) {
       left: 18%;
     }
+  }
+}
+
+.btn {
+  transition: all 0.25s ease;
+  &:after {
+    content: "Try Aircall for free";
+  }
+}
+
+.onclic {
+  border-radius: 40px;
+  height: 40px;
+  width: 40px;
+  border-color: #cccccc;
+  background: #fff;
+  border-width: 3px;
+  font-size: 0;
+  border-left-color: $color-primary;
+  animation: rotating 2s 0.25s linear infinite;
+  text-shadow: none;
+  outline: none;
+  border-style: solid;
+
+  &:after {
+    content: "";
+  }
+}
+.validate {
+  font-size: 13px;
+  color: white;
+  background: $color-primary;
+  border: none;
+
+  height: 40px;
+
+  width: 40px;
+
+  border-radius: 40px;
+  &:after {
+    font-family: "FontAwesome";
+    content: "\f00c";
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
